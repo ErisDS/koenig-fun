@@ -9,10 +9,17 @@ const renderedHTML = `<p>Ghost has a powerful visual editor with familiar format
     &lt;/div&gt;
 &lt;/header&gt;</code></pre><h1 id="working-with-images-in-posts">Working with images in posts</h1><p>You can add images to your posts in many ways:</p><ul><li>Upload from your computer</li><li>Click and drag an image into the browser</li><li>Paste directly into the editor from your clipboard</li><li>Insert using a URL</li></ul><p>Once inserted you can blend images beautifully into your content at different sizes and add captions wherever needed.</p><figure class="kg-card kg-image-card"><img src="https://casper.ghost.org/v2.0.0/images/using-images-demo.gif" class="kg-image"></figure><p>The post settings menu and publishing options can be found in the top right hand corner. For more advanced tips on post settings check out the <a href="/publishing-options/">publishing options</a> post!</p>`;
 
+// Resulting HTML with <strong>s converted back to <b>s.
+const desanitizedHTML = `<p>Ghost has a powerful visual editor with familiar formatting options, as well as the ability to seamlessly add dynamic content. </p><p>Select the text to add formatting, headers or create links, or use Markdown shortcuts to do the work for you - if that's your thing. </p><figure class="kg-card kg-image-card"><img src="https://casper.ghost.org/v2.0.0/images/formatting-editor-demo.gif" class="kg-image"></figure><h2 id="rich-editing-at-your-fingertips">Rich editing at your fingertips</h2><p>The editor can also handle rich media objects, called <b>cards</b>. </p><p>You can insert a card either by clicking the  <code>+</code>  button on a new line, or typing  <code>/</code>  on a new line to search for a particular card. This allows you to efficiently insert<b> images</b>, <b>markdown</b>, <b>html</b> and <b>embeds</b>.</p><p><b>For Example</b>:</p><ul><li>Insert a video from YouTube directly into your content by pasting the URL </li><li>Create unique content like a button or content opt-in using the HTML card</li><li>Need to share some code? Embed code blocks directly </li></ul><pre><code>&lt;header class="site-header outer"&gt;
+    &lt;div class="inner"&gt;
+        {{&gt; "site-nav"}}
+    &lt;/div&gt;
+&lt;/header&gt;</code></pre><h1 id="working-with-images-in-posts">Working with images in posts</h1><p>You can add images to your posts in many ways:</p><ul><li>Upload from your computer</li><li>Click and drag an image into the browser</li><li>Paste directly into the editor from your clipboard</li><li>Insert using a URL</li></ul><p>Once inserted you can blend images beautifully into your content at different sizes and add captions wherever needed.</p><figure class="kg-card kg-image-card"><img src="https://casper.ghost.org/v2.0.0/images/using-images-demo.gif" class="kg-image"></figure><p>The post settings menu and publishing options can be found in the top right hand corner. For more advanced tips on post settings check out the <a href="/publishing-options/">publishing options</a> post!</p>`;
+
 
 const convertHTMLToMobileDoc = require('./lib/convertor');
 
-const mobiledoc = convertHTMLToMobileDoc(renderedHTML);
+const mobiledoc = convertHTMLToMobileDoc(desanitizedHTML);
 
 console.log('PROCESSED', mobiledoc);
 

@@ -21,8 +21,18 @@ const convertHTMLToMobileDoc = require('./lib/convertor');
 
 const mobiledoc = convertHTMLToMobileDoc(desanitizedHTML);
 
-console.log('PROCESSED', mobiledoc);
+
+const printMobiledoc = (title, md) => {
+    console.log(title);
+    console.log('version', md.version);
+    console.log('atoms', md.atoms);
+    console.log('cards', md.cards);
+    console.log('markups', md.markups);
+    console.log('sections', require('util').inspect(md.sections, false, null));
+}
+
+printMobiledoc('PROCESSED', mobiledoc);
 
 console.log('\n\n');
 
-console.log('ORIGINAL', originalMobiledoc);
+printMobiledoc('ORIGINAL', JSON.parse(originalMobiledoc));

@@ -17,10 +17,13 @@ const desanitizedHTML = `<p>Ghost has a powerful visual editor with familiar for
 &lt;/header&gt;</code></pre><h1 id="working-with-images-in-posts">Working with images in posts</h1><p>You can add images to your posts in many ways:</p><ul><li>Upload from your computer</li><li>Click and drag an image into the browser</li><li>Paste directly into the editor from your clipboard</li><li>Insert using a URL</li></ul><p>Once inserted you can blend images beautifully into your content at different sizes and add captions wherever needed.</p><figure class="kg-card kg-image-card"><img src="https://casper.ghost.org/v2.0.0/images/using-images-demo.gif" class="kg-image"></figure><p>The post settings menu and publishing options can be found in the top right hand corner. For more advanced tips on post settings check out the <a href="/publishing-options/">publishing options</a> post!</p>`;
 
 
+const htmltest = `<p>Ghost has a powerful visual editor with familiar formatting options, as well as the ability to seamlessly add dynamic content. </p><p>Select the text to add formatting, headers or create links, or use Markdown shortcuts to do the work for you - if that's your thing. </p>`;
+
 import convertHTMLToMobileDoc from './lib/convertor';
 
+console.time('Conversion took');
 const mobiledoc = convertHTMLToMobileDoc(desanitizedHTML);
-
+console.timeEnd('Conversion took');
 
 const printMobiledoc = (title, md) => {
     console.log(title);
@@ -35,4 +38,6 @@ printMobiledoc('PROCESSED', mobiledoc);
 
 console.log('\n\n');
 
-printMobiledoc('ORIGINAL', JSON.parse(originalMobiledoc));
+// printMobiledoc('ORIGINAL', JSON.parse(originalMobiledoc));
+
+console.log(JSON.stringify(mobiledoc));

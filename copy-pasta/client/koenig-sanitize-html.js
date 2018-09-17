@@ -7,7 +7,7 @@
  * It _should_ also be used to sanitze HTML before initialising the editor with HTML
  */
 
-module.exports = (html) => {
+export default function (html) {
     let normalizedHtml = html
         .replace(/<b(\s|>)/gi, '<strong$1')
         .replace(/<\/b>/gi, '</strong>')

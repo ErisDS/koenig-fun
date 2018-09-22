@@ -16,12 +16,15 @@ const desanitizedGhostHTML = `<p>Ghost has a powerful visual editor with familia
     &lt;/div&gt;
 &lt;/header&gt;</code></pre><h1 id="working-with-images-in-posts">Working with images in posts</h1><p>You can add images to your posts in many ways:</p><ul><li>Upload from your computer</li><li>Click and drag an image into the browser</li><li>Paste directly into the editor from your clipboard</li><li>Insert using a URL</li></ul><p>Once inserted you can blend images beautifully into your content at different sizes and add captions wherever needed.</p><figure class="kg-card kg-image-card"><img src="https://casper.ghost.org/v2.0.0/images/using-images-demo.gif" class="kg-image"></figure><p>The post settings menu and publishing options can be found in the top right hand corner. For more advanced tips on post settings check out the <a href="/publishing-options/">publishing options</a> post!</p>`;
 
+const testTwitterHTML = `<figure class="kg-embed-card"><blockquote class="twitter-tweet"><p lang="en" dir="ltr">TIANA’S HAIR!!!<br><br>MULAN’S OUTFIT!!!<br><br>ELSA USING HER MILKSHAKE TO BRING PRINCESSES TO HER YARD!!!<br><br>ARIEL CONSIDERING IF SHE SHOULD GO TO ELSA’S YARD!!!<br><br>MULAN SITTING LIKE THE BISEXUAL DISASTER SHE IS!!!<br><br>SNOW WHITE’S SHIRT!!!<br><br>MOANA’S EVERYTHING!!!<br><br>THIS MOVIE IS GONNA WRECK ME!!! <a href="https://t.co/o3BOf25XsQ">pic.twitter.com/o3BOf25XsQ</a></p>&mdash; Dened Rey Moreno (@Hajabeg) <a href="https://twitter.com/Hajabeg/status/1027631337442664448?ref_src=twsrc%5Etfw">August 9, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</figure>`;
 
 
 import convertHTMLToMobileDoc from './lib/convertor';
 
 console.time('Conversion took');
-const mobiledoc = convertHTMLToMobileDoc(desanitizedGhostHTML);
+const mobiledoc = convertHTMLToMobileDoc(testTwitterHTML);
 console.timeEnd('Conversion took');
 
 const printMobiledoc = (title, md) => {
